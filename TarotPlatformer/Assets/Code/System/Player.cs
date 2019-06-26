@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    public float speed = 3f;
+    public float speed = 6f;
     public float jump_speed = 500f;
+    public float run_speed = 5.5f;
+    public float dash_distance = 1.5f;
+    public int numJumps = 1;
     Rigidbody2D rb;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
 
@@ -19,20 +22,40 @@ public class Player : MonoBehaviour {
         var input = Input.GetAxis("Horizontal"); // This will give us left and right movement (from -1 to 1). 
         var movement = input * speed;
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            movement = input * speed * dash_distance;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movement = input * speed * run_speed;
+        }
+
+
         rb.velocity = new Vector3(movement, rb.velocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
+        if (numJumps == 0 && Input.GetKeyDown(KeyCode.Space))
+        {
+             rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
+             numJumps++;
+             Debug.Log("jumped!");
         }
     }
 
 
-    void OnTriggerEnter2D(Collider2D col) // col is the trigger object we collided with
+    void OnCollisionEnter2D(Collision2D col) // col is the trigger object we collided with
     {
         //example code 
-        if (col.tag == "Coin")
+       // if (col.tag == "Coin")
+        //{
+        //    Destroy(col.gameObject); // remove the coin
+        //}
+
+        if(col.collider.tag == "Ground")
         {
-            Destroy(col.gameObject); // remove the coin
+            numJumps--;
+            Debug.Log("Landed");
         }
     }
 }
