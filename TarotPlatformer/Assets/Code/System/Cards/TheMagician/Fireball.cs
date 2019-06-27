@@ -12,8 +12,10 @@ public class Fireball : MonoBehaviour {
 
         if (Player.dir == false) {
             speed *= -1;
+        } else {
+            speed = Mathf.Abs(speed);
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

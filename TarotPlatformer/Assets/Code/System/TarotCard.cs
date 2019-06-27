@@ -7,7 +7,7 @@ public abstract class TarotCard : MonoBehaviour {
     private string cardName;
     private int level;
     private float cooldown;
-    private float lastCast = Time.time;
+    //private float lastCast = Time.time;
     public Sprite[] sprites;
 
     public abstract void Ability();
