@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
     public float run_speed = 5.5f;
     public float dash_distance = 1.5f;
     public int numJumps = 1;
+    public float dash = 0.4f;
+    //public Transform destination;
     Rigidbody2D rb;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
 
@@ -41,6 +43,12 @@ public class Player : MonoBehaviour {
              numJumps++;
              Debug.Log("jumped!");
         }
+
+        //if (Input.GetKey(KeyCode.LeftControl))
+      //  {
+            //new Vector2(transform.position.x + 0.4f, 0);
+            //transform.position = destination.position;
+       // }
     }
 
 
