@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
     public float dash_distance = 1.5f;
     public int numJumps = 1;
     public float dash = 0.4f;
+    public static float playerX;
+    public float Rtele;
+    public float Ltele;
     //public Transform destination;
     Rigidbody2D rb;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
@@ -44,6 +47,13 @@ public class Player : MonoBehaviour {
              Debug.Log("jumped!");
         }
 
+        playerX = transform.position.x;
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            Teleport();
+        }
+
         //if (Input.GetKey(KeyCode.LeftControl))
       //  {
             //new Vector2(transform.position.x + 0.4f, 0);
@@ -51,6 +61,10 @@ public class Player : MonoBehaviour {
        // }
     }
 
+    void Teleport()
+    {
+        transform.position = new Vector3(transform.position.x + Rtele, transform.position.y, transform.position.z);
+    }
 
     void OnCollisionEnter2D(Collision2D col) // col is the trigger object we collided with
     {
@@ -62,7 +76,7 @@ public class Player : MonoBehaviour {
 
         if(col.collider.tag == "Ground")
         {
-            numJumps--;
+            numJumps = 0;
             Debug.Log("Landed");
         }
     }
