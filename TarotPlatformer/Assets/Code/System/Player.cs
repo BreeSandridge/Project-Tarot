@@ -18,23 +18,37 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+        movement();
+    }
+
+
+    private void ability() {
+        if ()
+    }
+
+    //movement code
+    private void movement()
+    {
         playerPos = transform.position;
         var input = Input.GetAxis("Horizontal"); // This will give us left and right movement (from -1 to 1). 
         var movement = input * speed;
 
-        if(input > 0) {
+        if (input > 0)
+        {
             dir = true;
-        } else if(input < 0) {
+        }
+        else if (input < 0)
+        {
             dir = false;
         }
 
         rb.velocity = new Vector3(movement, rb.velocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
         }
     }
-
 
     void OnTriggerEnter2D(Collider2D col) // col is the trigger object we collided with
     {

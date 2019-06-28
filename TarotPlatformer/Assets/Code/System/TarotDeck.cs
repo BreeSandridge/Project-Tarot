@@ -17,4 +17,17 @@ public class TarotDeck : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    // col is the trigger object we collided with
+    void OnTriggerEnter2D(Collider2D col) {
+        //example code 
+        if (col.tag == "Card") {
+            Destroy(col.gameObject); // remove the coin
+            NewCard();
+        }
+    }
+
+    private void NewCard() {
+        contains[0] = true;
+    }
 }
