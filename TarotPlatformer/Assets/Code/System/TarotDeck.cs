@@ -16,6 +16,7 @@ public class TarotDeck : MonoBehaviour {
 	void Start () {
         // The magician card
         deck.Add(new TheMagician());
+        deck.Add(new TheChariot());
 
 	}
 	
@@ -43,5 +44,9 @@ public class TarotDeck : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E)) {
             TheMagician = true;
         }
+    }
+
+    internal class TheMagician
+    {
     }
 }

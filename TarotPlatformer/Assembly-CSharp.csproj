@@ -67,6 +67,7 @@
     <Compile Include="Assets\Code\System\Cards\TheMagician\TheMagician.cs" />
     <Compile Include="Assets\Code\System\Player.cs" />
     <Compile Include="Assets\Code\System\TarotDeck.cs" />
+    <Compile Include="Assets\Code\System\TheChariot.cs" />
     <Compile Include="Assets\Code\System\Utils\MyLinkedList.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ITP/Desktop/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
