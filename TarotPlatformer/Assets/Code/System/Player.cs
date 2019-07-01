@@ -19,11 +19,12 @@ public class Player : MonoBehaviour {
     void Update()
     {
         movement();
+        ability();
     }
 
 
-    private void ability() {
-        if ()
+    private static void ability() {
+        TarotDeck.ability();
     }
 
     //movement code

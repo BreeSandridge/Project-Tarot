@@ -6,6 +6,12 @@ public class TarotDeck : MonoBehaviour {
 
     public static TarotCard[] deck = new TarotCard[1];
     public static bool[] contains = new bool[1];
+
+
+
+
+    public static bool TheMagician = false;
+
 	// Use this for initialization
 	void Start () {
         // The magician card
@@ -29,5 +35,11 @@ public class TarotDeck : MonoBehaviour {
 
     private void NewCard() {
         contains[0] = true;
+    }
+
+    public static void ability() {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            TheMagician = true;
+        }
     }
 }
