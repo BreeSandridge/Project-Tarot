@@ -20,22 +20,36 @@ public class Card : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        hover();
+	}
+
+    private void hover() {
         deltaTime = Time.time - lastMove;
-        if (deltaTime > .1) {
-            if (goingUp) {
-                if (start.y + .5 >= transform.position.y) {
+        if (deltaTime > .1)
+        {
+            if (goingUp)
+            {
+                if (start.y + .5 >= transform.position.y)
+                {
                     transform.position += new Vector3(0, moveSpeed, 0);
-                } else {
+                }
+                else
+                {
                     goingUp = !goingUp;
                 }
-            } else {
-                if (start.y < transform.position.y) {
+            }
+            else
+            {
+                if (start.y < transform.position.y)
+                {
                     transform.position += new Vector3(0, -moveSpeed, 0);
-                } else {
+                }
+                else
+                {
                     goingUp = !goingUp;
                 }
             }
             lastMove = Time.time;
         }
-	}
+    }
 }

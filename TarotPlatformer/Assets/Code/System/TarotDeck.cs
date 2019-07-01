@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class TarotDeck : MonoBehaviour {
 
-    public static TarotCard[] deck = new TarotCard[1];
-    public static bool[] contains = new bool[1];
+    public MyLinkedList<TarotCard> deck = new MyLinkedList<TarotCard>();
+    MyLinkedList<TarotCard> remaining = new MyLinkedList<TarotCard>();
 
 
 
-
+   
     public static bool TheMagician = false;
 
 	// Use this for initialization
 	void Start () {
         // The magician card
-        deck[0] = new TheMagician();
-        contains[0] = false;
+        deck.Add(new TheMagician());
+
 	}
 	
 	// Update is called once per frame
@@ -34,7 +34,9 @@ public class TarotDeck : MonoBehaviour {
     }
 
     private void NewCard() {
-        contains[0] = true;
+        int index = Random.Range(0, remaining.Count - 1);
+        deck.Add(remaining[index]);
+        remaining.RemoveAt(index);
     }
 
     public static void ability() {
