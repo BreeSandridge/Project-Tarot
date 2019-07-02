@@ -10,7 +10,7 @@ public class TarotDeck : MonoBehaviour {
 
 
    
-    public static bool TheMagician = false;
+    public bool theMagician = false;
 
 	// Use this for initialization
 	void Start () {
@@ -42,7 +42,7 @@ public class TarotDeck : MonoBehaviour {
 
     public static void ability() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            TheMagician = true;
+           theMagician = true;
         }
     }
 
