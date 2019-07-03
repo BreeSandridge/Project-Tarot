@@ -68,6 +68,7 @@
     <Compile Include="Assets\Code\System\Cards\TheChariot\TheChariot.cs" />
     <Compile Include="Assets\Code\System\Cards\TheMagician\Fireball.cs" />
     <Compile Include="Assets\Code\System\Cards\TheMagician\TheMagician.cs" />
+    <Compile Include="Assets\Code\System\Enemy\BotController2D.cs" />
     <Compile Include="Assets\Code\System\Player.cs" />
     <Compile Include="Assets\Code\System\TarotDeck.cs" />
     <Compile Include="Assets\Code\System\Utils\MyLinkedList.cs" />
