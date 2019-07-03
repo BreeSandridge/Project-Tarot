@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class TarotDeck : MonoBehaviour {
 
-    public MyLinkedList<TarotCard> deck = new MyLinkedList<TarotCard>();
-    MyLinkedList<TarotCard> remaining = new MyLinkedList<TarotCard>();
+    static TheMagician magician;
+    TheChariot Chariot;
 
-
-
-   
-    public bool theMagician = false;
-
-	// Use this for initialization
-	void Start () {
+    static bool[] abilities = new bool[2];
+    // Use this for initialization
+    void Start () {
         // The magician card
-        deck.Add(new TheMagician());
-        deck.Add(new TheChariot());
+        magician = new TheMagician();
+        abilities[0] = false;
 
+        TheChariot theChariot = new TheChariot();
+        abilities[1] = false;
 	}
 	
 	// Update is called once per frame
@@ -35,18 +33,18 @@ public class TarotDeck : MonoBehaviour {
     }
 
     private void NewCard() {
-        int index = Random.Range(0, remaining.Count - 1);
-        deck.Add(remaining[index]);
-        remaining.RemoveAt(index);
-    }
-
-    public static void ability() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-           theMagician = true;
+        for (int i = 0; i < abilities.Length; i++) {
+            if (!abilities[i]) {
+                abilities[i] = true;
+                break;
+            }
         }
     }
 
-    internal class TheMagician
-    {
+    public static void ability() {
+        if (Input.GetKeyDown(KeyCode.E) && abilities[0]) {
+            GameManager.magicianAbility = true;
+        }
     }
+
 }

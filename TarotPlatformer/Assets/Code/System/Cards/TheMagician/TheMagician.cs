@@ -7,23 +7,17 @@ public class TheMagician : TarotCard {
     Vector3 pos;
 
     public override void Ability() {
+        pos = Player.playerPos;
 
-        if (TarotDeck.TheMagician) {
-            pos = Player.playerPos;
-
-            if (Player.dir == true)
-            {
-                pos += new Vector3(1, 0, 0);
-            }
-            else
-            {
-                pos += new Vector3(-1, 0, 0);
-            }
-
-            Instantiate(obj, pos, Quaternion.identity);
-
-            TarotDeck.TheMagician = false;
+        if (Player.dir == true)
+        {
+            pos += new Vector3(1, 0, 0);
         }
+        else
+        {
+            pos += new Vector3(-1, 0, 0);
+        }
+        Instantiate(obj, pos, Quaternion.identity);
     }
 
 
@@ -35,6 +29,10 @@ public class TheMagician : TarotCard {
 
     // Update is called once per frame
     public override void Update() {
-        Ability();
+        if (GameManager.magicianAbility)
+        {
+            Ability();
+            GameManager.magicianAbility = false;
+        }
     }
 }
