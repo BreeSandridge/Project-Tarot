@@ -2,24 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour { 
-    public GameObject obj;
+public class EnemyAI : MonoBehaviour
+{
+    public GameObject fireball;
+    public GameObject player;
+    public int counter;
     Vector3 pos;
+    Rigidbody2D rb2D;
 
-    public void Enemy()
-
+    private void Update()
     {
         pos = transform.position;
-
-        if (Enemy.dir.Player == true)
+        Vector3 pPos = player.transform.position;
+        float len = (pos - pPos).magnitude;
+        int dir = 0;
+        if(pos.x > pPos.x)
         {
-            pos += new Vector3(1, 0, 0);
+            dir = -1;
         }
         else
         {
-            pos += new Vector3(-1, 0, 0);
+            dir = +1;
         }
-      Instantiate(obj, pos, Quaternion.identity);
+
+        if (len < 5)
+        {
+            Instantiate(fireball, pos, Quaternion.identity);
+            fireball.GetComponent<Fireball>().speed *= dir;
+        }
+       
+    }
+    
+    
+  
+    private void Start()
+    {
+        
     }
 }
+
 
