@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     public static float playerX;
     public float Rtele;
     public float Ltele;
-    //public Transform destination;
+    public float Dashcd = 5;
     Rigidbody2D rb;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
 
@@ -26,17 +26,12 @@ public class Player : MonoBehaviour {
     {
         var input = Input.GetAxis("Horizontal"); // This will give us left and right movement (from -1 to 1). 
         var movement = input * speed;
+        Dashcd -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            movement = input * speed * dash_distance;
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        /*if (Input.GetKey(KeyCode.[enter key name]))
         {
             movement = input * speed * run_speed;
-        }
-
+        }*/
 
         rb.velocity = new Vector3(movement, rb.velocity.y, 0);
 
@@ -44,40 +39,44 @@ public class Player : MonoBehaviour {
         {
              rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
              numJumps++;
-             Debug.Log("jumped!");
         }
 
         playerX = transform.position.x;
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == 1)
         {
-            Teleport();
+            RTeleport();
         }
 
-        //if (Input.GetKey(KeyCode.LeftControl))
-      //  {
-            //new Vector2(transform.position.x + 0.4f, 0);
-            //transform.position = destination.position;
-       // }
+        if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == -1)
+        {
+            LTeleport();
+        }
     }
 
-    void Teleport()
+    void RTeleport()
     {
         transform.position = new Vector3(transform.position.x + Rtele, transform.position.y, transform.position.z);
+        Dashcd = 5;
+    }
+
+    void LTeleport()
+    {
+        transform.position = new Vector3(transform.position.x - Ltele, transform.position.y, transform.position.z);
+        Dashcd = 5;
     }
 
     void OnCollisionEnter2D(Collision2D col) // col is the trigger object we collided with
     {
-        //example code 
-       // if (col.tag == "Coin")
-        //{
-        //    Destroy(col.gameObject); // remove the coin
-        //}
+        /*example code 
+        if (col.tag == "Coin")
+        {
+            Destroy(col.gameObject); // remove the coin
+        }*/
 
         if(col.collider.tag == "Ground")
         {
             numJumps = 0;
-            Debug.Log("Landed");
         }
     }
 }
