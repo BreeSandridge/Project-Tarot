@@ -6,14 +6,14 @@ using UnityEngine;
 public class Strength : TarotCard {
     public bool active = false;
     public bool lastframe = false;
-
+    
 
 
 
 
     public override void Ability()
     {
-        
+      
             if (!lastframe && active)
             {
             GameManager.damage *= 1.35f;
@@ -22,7 +22,7 @@ public class Strength : TarotCard {
             }
             else if (lastframe && !active)
             {
-                GameManager.speed /= 1.35f;
+            GameManager.atk_speed = 10f;
             }
         
 

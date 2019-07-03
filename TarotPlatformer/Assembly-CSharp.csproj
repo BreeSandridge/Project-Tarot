@@ -63,19 +63,22 @@
   <ItemGroup>
     <Compile Include="Assets\Code\System\Cards\Card.cs" />
     <Compile Include="Assets\Code\System\Cards\GameManager.cs" />
+    <Compile Include="Assets\Code\System\Cards\Moon\Moon.cs" />
     <Compile Include="Assets\Code\System\Cards\Strength\Strength.cs" />
+    <Compile Include="Assets\Code\System\Cards\Sun\Sun.cs" />
     <Compile Include="Assets\Code\System\Cards\TarotCard.cs" />
     <Compile Include="Assets\Code\System\Cards\TheChariot\TheChariot.cs" />
     <Compile Include="Assets\Code\System\Cards\TheMagician\Fireball.cs" />
     <Compile Include="Assets\Code\System\Cards\TheMagician\TheMagician.cs" />
     <Compile Include="Assets\Code\System\Player.cs" />
     <Compile Include="Assets\Code\System\TarotDeck.cs" />
+    <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
     <Compile Include="Assets\Code\System\Utils\MyLinkedList.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/ITP/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/ITP/Desktop/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/ITP/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/ITP/Desktop/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
