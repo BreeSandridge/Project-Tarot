@@ -6,8 +6,8 @@ public class Player : MonoBehaviour {
     
     Rigidbody2D rb;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
-    public  bool dir = true;
-    public  Vector3 playerPos = new Vector3(0, 0, 0);
+    public static bool dir = true;
+    public static Vector3 playerPos = new Vector3(0, 0, 0);
 
     void Start()
     {

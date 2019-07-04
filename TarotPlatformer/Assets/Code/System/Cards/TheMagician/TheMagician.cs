@@ -8,7 +8,7 @@ public class TheMagician : TarotCard {
 
     public override void Ability() {
 
-        if (TarotDeck.TheMagician) {
+        if (GameManager.magicianAbility) {
             pos = Player.playerPos;
 
             if (Player.dir == true)
@@ -22,7 +22,7 @@ public class TheMagician : TarotCard {
 
             Instantiate(obj, pos, Quaternion.identity);
 
-            TarotDeck.TheMagician = false;
+            GameManager.magicianAbility = false;
         }
     }
 

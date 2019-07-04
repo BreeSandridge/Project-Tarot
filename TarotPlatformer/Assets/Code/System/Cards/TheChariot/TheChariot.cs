@@ -19,8 +19,6 @@ public class TheChariot : TarotCard {
 
     public override void Start()
     {
-
-        GameManager manager = gameObject.GetComponent<GameManager>();
         
     }
 
