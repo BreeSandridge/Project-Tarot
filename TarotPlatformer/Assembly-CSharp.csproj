@@ -64,6 +64,7 @@
     <Compile Include="Assets\Code\System\Player.cs" />
     <Compile Include="Assets\Code\System\PlayerCamera.cs" />
     <Compile Include="Assets\Code\System\timer.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ITP/Desktop/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

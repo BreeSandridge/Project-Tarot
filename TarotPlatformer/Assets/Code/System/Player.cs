@@ -14,9 +14,14 @@ public class Player : MonoBehaviour {
     public float Ltele;
     public float Dashcd = 5;
     public float jumpt;
-    public bool activated = false;
+    public float Healt;
+    public float Dasht;
+    public bool jumpActivation = false;
+    public bool healActivation = false;
+    public bool dashActivation = false;
     Rigidbody2D rb;
     Animator anim;
+    public Animator anim1;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
 
     void Start()
@@ -43,16 +48,16 @@ public class Player : MonoBehaviour {
         {
             anim.SetBool("MakeFall", true);
             jumpt = Time.time;
-            activated = true;
+            jumpActivation = true;
             numJumps++;
         }
 
-        if (activated)
+        if (jumpActivation)
         {
             if (Time.time - jumpt > 0.2)
             {
                 rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
-                activated = false;
+                jumpActivation = false;
             }
         }
 
@@ -60,11 +65,17 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == 1)
         {
+            anim1.SetBool("DashAnimBool", true);
+            Dasht = Time.time;
+            dashActivation = true;
             RTeleport();
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == -1)
         {
+            anim1.SetBool("DashAnimBool", true);
+            Dasht = Time.time;
+            dashActivation = true;
             LTeleport();
         }
 
@@ -76,6 +87,33 @@ public class Player : MonoBehaviour {
         else
         {
             anim.SetBool("MakeWalk", false);
+        }
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            anim.SetBool("Heal0", true);
+            anim1.SetBool("Heal1", true);
+            Healt = Time.time;
+            healActivation = true;
+        }
+
+        if (healActivation)
+        {
+            if (Time.time - Healt > 1)
+            {
+                anim.SetBool("Heal0", false);
+                anim1.SetBool("Heal1", false);
+                healActivation = false;
+            }
+        }
+
+        if (dashActivation)
+        {
+            if (Time.time - Dasht > 0.8)
+            {
+                anim1.SetBool("DashAnimBool", false);
+                dashActivation = false;
+            }
         }
     }
 
