@@ -13,13 +13,17 @@ public class Player : MonoBehaviour {
     public float Rtele;
     public float Ltele;
     public float Dashcd = 5;
+    public float jumpt;
+    public bool activated = false;
     Rigidbody2D rb;
+    Animator anim;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the rigidbody component added to the object and store it in rb
         startingPosition = transform.position;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -37,8 +41,19 @@ public class Player : MonoBehaviour {
 
         if (numJumps == 0 && Input.GetKeyDown(KeyCode.Space))
         {
-             rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
-             numJumps++;
+            anim.SetBool("MakeFall", true);
+            jumpt = Time.time;
+            activated = true;
+            numJumps++;
+        }
+
+        if (activated)
+        {
+            if (Time.time - jumpt > 0.2)
+            {
+                rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
+                activated = false;
+            }
         }
 
         playerX = transform.position.x;
@@ -51,6 +66,16 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == -1)
         {
             LTeleport();
+        }
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("MakeWalk", true);
+        }
+
+        else
+        {
+            anim.SetBool("MakeWalk", false);
         }
     }
 
@@ -77,6 +102,7 @@ public class Player : MonoBehaviour {
         if(col.collider.tag == "Ground")
         {
             numJumps = 0;
+            anim.SetBool("MakeFall", false);
         }
     }
 }
