@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     Vector3 startingPosition; // If we die we will teleport player to starting position.
     public static bool dir = true;
     public static Vector3 playerPos = new Vector3(0, 0, 0);
+    
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour {
 
         rb.velocity = new Vector3(movement, rb.velocity.y, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             rb.AddForce(new Vector3(0, GameManager.jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
         }
@@ -80,6 +81,12 @@ public class Player : MonoBehaviour {
         if (col.tag == "Coin")
         {
             Destroy(col.gameObject); // remove the coin
+        }
+
+        if(col.tag == "Fireball")
+        {
+            Destroy(col.gameObject);
+            GameManager.health -= 10f;
         }
     }
 }

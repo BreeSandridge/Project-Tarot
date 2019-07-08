@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4617963352980100}
   - component: {fileID: 212098025303476216}
   - component: {fileID: 61265366124082738}
-  - component: {fileID: 50169713918912036}
   - component: {fileID: 114360335968180304}
+  - component: {fileID: 50489102144468076}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50169713918912036
+--- !u!50 &50489102144468076
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77c5e5d17e154248929ea4dd497e076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
 --- !u!212 &212098025303476216
 SpriteRenderer:
   m_ObjectHideFlags: 1
