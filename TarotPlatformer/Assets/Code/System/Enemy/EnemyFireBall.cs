@@ -6,6 +6,7 @@ public class EnemyFireBall : MonoBehaviour {
 
     public int speed = 20;
     float t;
+    public  GameObject obj;
 
     Rigidbody2D rb;
 
@@ -24,16 +25,28 @@ public class EnemyFireBall : MonoBehaviour {
             speed = Mathf.Abs(speed);
         }
         rb.velocity = new Vector3(speed, 0, 0);
+        Destroy(gameObject, 3);
     }
 
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        
+
+        if (coll.gameObject.tag.Equals("Player"))
+        {
+            Debug.Log("Hello");
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        // rb.velocity = new Vector3(speed, 0, 0);
+        /* rb.velocity = new Vector3(speed, 0, 0);
         if (Time.time - t < 6)
         {
-            GameObject.Destroy(this);
-        }
+            
+        }*/
     }
 }
 

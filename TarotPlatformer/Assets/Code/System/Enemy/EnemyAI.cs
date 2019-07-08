@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log(EnemyManager.health);
     }
 
     private void Update()
@@ -61,22 +62,28 @@ public class EnemyAI : MonoBehaviour
                 t = Time.time;
             }
         }
-
+        if (EnemyManager.health == 0f)
+        {
+            Destroy(gameObject);
+        }
         
 
     }
-    void OnTriggerEnter2D(Collider2D col) // col is the trigger object we collided with
-    {
-
-        if (col.tag == "Fireball")
+    //void OnTriggerEnter2D(Collider2D col) // col is the trigger object we collided with
+        void OnCollisionEnter2D(Collision2D col)
         {
-            Destroy(col.gameObject);
+        Debug.Log("Work");
+        if (col.gameObject.tag == "Fireball")
+        {
+            Debug.Log("Damage");
             EnemyManager.health -= 10f;
         }
 
 
 
-        //private void Start()
+
+
+        /*private void Start()
         {
             t = Time.time;
             sr = GetComponent<SpriteRenderer>();
@@ -84,5 +91,6 @@ public class EnemyAI : MonoBehaviour
             //size = new Vector3(5, 0, 0);
             dir = false;
         }
+        */
     }
 }
