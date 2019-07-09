@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/ITP/Desktop/New folder (2)/New folder (2).exe
+C:/Users/ITP/Desktop/Test 6/Test 6.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Game.unity
@@ -125,6 +125,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 52d8a25830e203c78e29abd988494be1 Assembly-CSharp.dll:.Strength
 8b2f27dd6e88b0448b8d675bae0c0eca Assembly-CSharp.dll:.Resume
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Game_Over_ToPlay
 6d044c2b56c666f1e21e11bccdcc0b38 Assembly-CSharp.dll:.TheMagician
 a723fbedae099b288a2c2e28fddfb6d7 Assembly-CSharp.dll:.Card
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -164,4 +165,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Exit
 c614e2948a9cff52dfd48f2591954d7b Assembly-CSharp.dll:.Fireball
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Game_Over_ToPlay
