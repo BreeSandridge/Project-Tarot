@@ -42,6 +42,11 @@ public class Player : MonoBehaviour {
         var movement = input * speed;
         Dashcd -= Time.deltaTime;
 
+        /*if (Input.GetKey(KeyCode.A))
+        {
+            GetComponent<Transform>().rotation.x = 180;
+        }*/
+
         if (GameManager.Activated)
         {
             /*if (Input.GetKey(KeyCode.[enter key name]))
