@@ -7,43 +7,60 @@ public class TarotDeck : MonoBehaviour {
     static TheMagician magician;
     TheChariot Chariot;
 
-    static bool[] abilities = new bool[2];
+    static bool[] abilities = new bool[3];
     // Use this for initialization
     void Start () {
         // The magician card
-        magician = new TheMagician();
         abilities[0] = false;
 
-        TheChariot theChariot = new TheChariot();
+        // The Chariot
         abilities[1] = false;
+
+        // Sun
+        abilities[2] = false; 
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        NewCard();
 	}
 
     // col is the trigger object we collided with
-    void OnTriggerEnter2D(Collider2D col) {
+    /*void OnCollisionTrigger2D(Collider2D col) {
+        Debug.Log("got here");
+
         //example code 
-        if (col.tag == "Card") {
+        if (col.CompareTag("Card")) {
             Destroy(col.gameObject); // remove the coin
             NewCard();
+        } else if (col.gameObject.name == "TestCol")
+        {
+            Destroy(col.gameObject);
         }
-    }
 
-    private void NewCard() {
-        for (int i = 0; i < abilities.Length; i++) {
-            if (!abilities[i]) {
-                abilities[i] = true;
-                break;
+    }
+    */
+    public static void NewCard() {
+        for (int ignoreThisInt = 0; GameManager.newCards > 0; GameManager.newCards--) {
+            for (int i = 0; i < abilities.Length; i++)
+            {
+                if (!abilities[i])
+                {
+                    abilities[i] = true;
+                    break;
+                }
             }
         }
     }
 
     public static void ability() {
-        if (Input.GetKeyDown(KeyCode.E) && abilities[0]) {
+        if (Input.GetKeyDown(KeyCode.R) && abilities[0]) {
             GameManager.magicianAbility = true;
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl) && abilities[1]) {
+            GameManager.chariotAbility = true;
         }
     }
 

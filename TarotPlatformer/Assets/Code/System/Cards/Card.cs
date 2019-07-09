@@ -21,6 +21,7 @@ public class Card : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         hover();
+        checkForCol();
 	}
 
     private void hover() {
@@ -50,6 +51,19 @@ public class Card : MonoBehaviour {
                 }
             }
             lastMove = Time.time;
+        }
+    }
+
+    private void checkForCol() {
+        if (Mathf.Abs(GameManager.playerPos.x - transform.position.x)  < 1 || 
+            Mathf.Abs(transform.position.x - GameManager.playerPos.x) < 1) {
+
+            if (Mathf.Abs(GameManager.playerPos.y - transform.position.y) < 1 ||
+            Mathf.Abs(transform.position.y - GameManager.playerPos.y) < 1)
+            {
+                GameManager.newCards++;
+                Destroy(this.gameObject);
+            }
         }
     }
 }

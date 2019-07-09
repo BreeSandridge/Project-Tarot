@@ -9,9 +9,10 @@ public class TheMagician : TarotCard {
     public override void Ability() {
 
         if (GameManager.magicianAbility) {
-            pos = Player.playerPos;
+            Debug.Log(GameManager.dir);
+            pos = GameManager.playerPos;
 
-            if (Player.dir == true)
+            if (GameManager.dir == true)
             {
                 pos += new Vector3(1, 0, 0);
             }

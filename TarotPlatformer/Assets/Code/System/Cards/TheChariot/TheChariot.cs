@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TheChariot : TarotCard {
-    public bool lastframe = false;
-    public bool active = false; 
+    public bool current = false;
+    public bool change = false;
+    float time = 0f;
     public override void Ability()
     {
-        if (!lastframe && active)
+        current = !current;
+
+        if (current)
         {
-            GameManager.speed *= 1.35f;
+            GameManager.speed *= 2;
         }
-        else if (lastframe && !active)
+        else
         {
-            GameManager.speed /= 1.35f;
+            GameManager.speed /= 2;
         }
+
     }
 
     public override void Start()
@@ -22,9 +26,25 @@ public class TheChariot : TarotCard {
         
     }
 
-    public override void Update()
-    {
-        Ability();
+    public override void Update() {
+
+        if (GameManager.chariotAbility) {
+            if (time == 0){
+                time = Time.time;
+                Ability();
+            }
+
+            if (Time.time - time > 10)
+            {
+                Ability();
+                GameManager.chariotAbility = false;
+            }
+
+
+
+        }
+
+
     }
 
 
