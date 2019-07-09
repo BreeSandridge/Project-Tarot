@@ -34,6 +34,7 @@ public class EnemyFireBall : MonoBehaviour {
         
 
         if (coll.gameObject.tag.Equals("Player")) {
+            GameManager.health -= 10f;
             Destroy(gameObject);
         }
 

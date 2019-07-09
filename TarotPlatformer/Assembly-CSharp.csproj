@@ -67,8 +67,12 @@
      <Compile Include="Assets\Code\System\Enemy\EnemyFireBall.cs" />
      <Compile Include="Assets\Code\System\Enemy\PeytonEnemyAI.cs" />
      <Compile Include="Assets\Code\System\Exit.cs" />
+     <Compile Include="Assets\Code\System\Game_Over_ToPlay.cs" />
+     <Compile Include="Assets\Code\System\MainMenu.cs" />
+     <Compile Include="Assets\Code\System\PauseMenu.cs" />
      <Compile Include="Assets\Code\System\Play.cs" />
      <Compile Include="Assets\Code\System\Player.cs" />
+     <Compile Include="Assets\Code\System\Resume.cs" />
      <Compile Include="Assets\Code\System\TarotDeck.cs" />
      <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
      <Compile Include="Assets\Code\System\Utils\MyLinkedList.cs" />
