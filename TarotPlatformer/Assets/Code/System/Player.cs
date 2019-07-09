@@ -18,11 +18,16 @@ public class Player : MonoBehaviour {
     public float Dasht;
     public bool jumpActivation = false;
     public bool healActivation = false;
-    public bool dashActivation = false;
+    public bool dashActivationR = false;
+    public bool dashActivationL = false;
     Rigidbody2D rb;
     Animator anim;
-    public Animator anim1;
+    public Animator anim2;
+    public Animator anim3;
+    public Animator anim4;
+    public Animator anim41;
     Vector3 startingPosition; // If we die we will teleport player to starting position.
+    public GameObject teleCard;
 
     void Start()
     {
@@ -37,82 +42,126 @@ public class Player : MonoBehaviour {
         var movement = input * speed;
         Dashcd -= Time.deltaTime;
 
-        /*if (Input.GetKey(KeyCode.[enter key name]))
+        if (GameManager.Activated)
         {
-            movement = input * speed * run_speed;
-        }*/
-
-        rb.velocity = new Vector3(movement, rb.velocity.y, 0);
-
-        if (numJumps == 0 && Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetBool("MakeFall", true);
-            jumpt = Time.time;
-            jumpActivation = true;
-            numJumps++;
-        }
-
-        if (jumpActivation)
-        {
-            if (Time.time - jumpt > 0.2)
+            /*if (Input.GetKey(KeyCode.[enter key name]))
             {
-                rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
-                jumpActivation = false;
+                movement = input * speed * run_speed;
+            }*/
+
+            rb.velocity = new Vector3(movement, rb.velocity.y, 0);
+
+            if (numJumps == 0 && Input.GetKeyDown(KeyCode.Space))
+            {
+                anim.SetBool("MakeFall", true);
+                jumpt = Time.time;
+                jumpActivation = true;
+                numJumps++;
+            }
+
+            if (jumpActivation)
+            {
+                if (Time.time - jumpt > 0.2)
+                {
+                    rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
+                    jumpActivation = false;
+                }
+            }
+
+            playerX = transform.position.x;
+
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                anim.SetBool("MakeWalk", true);
+            }
+
+            else
+            {
+                anim.SetBool("MakeWalk", false);
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                anim.SetBool("Heal0", true);
+                anim2.SetBool("Heal1", true);
+                Healt = Time.time;
+                healActivation = true;
+            }
+
+            if (healActivation)
+            {
+                if (Time.time - Healt > 1)
+                {
+                    anim.SetBool("Heal0", false);
+                    anim2.SetBool("Heal1", false);
+                    healActivation = false;
+                }
+            }
+
+            if (Input.GetKey(KeyCode.K))
+            {
+                anim.SetBool("Dead", true);
+            }
+
+            if (Input.GetKey(KeyCode.Z))
+            {
+                anim.SetBool("Dead", false);
             }
         }
 
-        playerX = transform.position.x;
-
         if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == 1)
         {
-            anim1.SetBool("DashAnimBool", true);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+            rb.gravityScale = 0f;
+            GameManager.Activated = false;
+            anim3.SetBool("DAB0", true);
             Dasht = Time.time;
-            dashActivation = true;
-            RTeleport();
+            dashActivationR = true;
+            //Instantiate(teleCard, transform.position, transform.rotation);
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == -1)
         {
-            anim1.SetBool("DashAnimBool", true);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+            rb.gravityScale = 0f;
+            GameManager.Activated = false;
+            anim3.SetBool("DAB0", true);
             Dasht = Time.time;
-            dashActivation = true;
-            LTeleport();
+            dashActivationL = true;
+            //Instantiate(teleCard, transform.position, transform.rotation);
         }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (dashActivationR)
         {
-            anim.SetBool("MakeWalk", true);
-        }
-
-        else
-        {
-            anim.SetBool("MakeWalk", false);
-        }
-
-        if(Input.GetKey(KeyCode.E))
-        {
-            anim.SetBool("Heal0", true);
-            anim1.SetBool("Heal1", true);
-            Healt = Time.time;
-            healActivation = true;
-        }
-
-        if (healActivation)
-        {
-            if (Time.time - Healt > 1)
+            if (Time.time - Dasht > 0.4)
             {
-                anim.SetBool("Heal0", false);
-                anim1.SetBool("Heal1", false);
-                healActivation = false;
+                anim3.SetBool("DAB0", false);
+                anim.SetBool("VisiblePlayer", false);
+                anim4.SetBool("DAB1R", true);
+            }
+
+            if (Time.time - Dasht > 0.8)
+            {
+                anim4.SetBool("DAB1R", false);
+                dashActivationR = false;
+                RTeleport();
             }
         }
 
-        if (dashActivation)
+        if (dashActivationL)
         {
+            if (Time.time - Dasht > 0.4)
+            {
+                anim3.SetBool("DAB0", false);
+                anim.SetBool("VisiblePlayer", false);
+                anim41.SetBool("DAB1L", true);
+            }
+
             if (Time.time - Dasht > 0.8)
             {
-                anim1.SetBool("DashAnimBool", false);
-                dashActivation = false;
+                anim41.SetBool("DAB1L", false);
+                dashActivationL = false;
+                LTeleport();
             }
         }
     }
@@ -120,13 +169,19 @@ public class Player : MonoBehaviour {
     void RTeleport()
     {
         transform.position = new Vector3(transform.position.x + Rtele, transform.position.y, transform.position.z);
+        anim.SetBool("VisiblePlayer", true);
+        rb.gravityScale = 6f;
         Dashcd = 5;
+        GameManager.Activated = true;
     }
 
     void LTeleport()
     {
         transform.position = new Vector3(transform.position.x - Ltele, transform.position.y, transform.position.z);
+        anim.SetBool("VisiblePlayer", true);
+        rb.gravityScale = 6f;
         Dashcd = 5;
+        GameManager.Activated = true;
     }
 
     void OnCollisionEnter2D(Collision2D col) // col is the trigger object we collided with
