@@ -10,6 +10,7 @@ public static class GameManager{
     public static float atk_speed = 10f;
     public static float critChance = .2f;
     public static bool dead = false;
+    
 
 
     public static bool magicianAbility = false;
