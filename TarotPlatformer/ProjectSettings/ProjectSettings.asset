@@ -25,7 +25,7 @@ PlayerSettings:
   m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
-  m_SplashScreenBackgroundLandscapeAspect: 0.542374
+  m_SplashScreenBackgroundLandscapeAspect: 1.7777778
   m_SplashScreenBackgroundPortraitAspect: 1
   m_SplashScreenBackgroundLandscapeUvs:
     serializedVersion: 2
@@ -553,7 +553,7 @@ PlayerSettings:
   psp2InfoBarOnStartup: 0
   psp2InfoBarColor: 0
   psp2ScriptOptimizationLevel: 0
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: e288aec9c54616746a71c760c7459e87,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: ec89a3074166d9845b0f63881385f6c4,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 

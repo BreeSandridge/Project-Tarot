@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/ITP/Desktop/Test 6/Test 6.exe
+C:/Users/ITP/Desktop/Test 7/Test 7.exe
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Game.unity
@@ -165,3 +165,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Exit
 c614e2948a9cff52dfd48f2591954d7b Assembly-CSharp.dll:.Fireball
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerHealth
