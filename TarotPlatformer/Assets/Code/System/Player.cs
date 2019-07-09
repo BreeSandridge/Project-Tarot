@@ -24,8 +24,9 @@ public class Player : MonoBehaviour
 
         if (GameManager.health == 0f)
         {
-            Destroy(gameObject);
+            Application.LoadLevel("Game_Over");
         }
+        
     }
 
 

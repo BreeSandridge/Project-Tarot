@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Resume : MonoBehaviour {
-    
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private bool isPaused;
 
     private void Update()
     {
 
-        if(Input.GetMouseButtonDown(0))
+        /* if(Input.GetMouseButtonDown(0))
         {
             PauseMenu.isPaused = !PauseMenu.isPaused;
         }
@@ -20,21 +21,21 @@ public class Resume : MonoBehaviour {
         else
         {
             DeactivateMenu();
-        }
+        }*/
     }
 
     void ActivateMenu()
 {
     Time.timeScale = 0;
     AudioListener.pause = true;
-    PauseMenu.pauseMenuUI.SetActive(true);
+    //PauseMenu.pauseMenuUI.SetActive(true);
 }
 
 void DeactivateMenu()
 {
     Time.timeScale = 1;
     AudioListener.pause = false;
-    PauseMenu.pauseMenuUI.SetActive(false);
+    //PauseMenu.pauseMenuUI.SetActive(false);
 }
    /* {
         if (Input.GetMouseButtonDown(0))

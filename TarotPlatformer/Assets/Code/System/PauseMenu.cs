@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] public static GameObject pauseMenuUI;
-    [SerializeField] public static bool isPaused;
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private bool isPaused;
 
 
     private void Update()
@@ -29,11 +29,13 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         AudioListener.pause = true;
-       pauseMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(true);
     }
 
-    void DeactivateMenu()
+    public void DeactivateMenu()
     {
+        isPaused = false;
+        Debug.Log("Resume");
         Time.timeScale = 1;
         AudioListener.pause = false;
         pauseMenuUI.SetActive(false);

@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lose_Screen.unity
     guid: 066eb45295dde76489c1bc829a9cafaa
+  - enabled: 1
+    path: Assets/Scenes/Game_Over.unity
+    guid: 14b8732e7219bc14b9a69cdf7aa67c92
   m_configObjects: {}
