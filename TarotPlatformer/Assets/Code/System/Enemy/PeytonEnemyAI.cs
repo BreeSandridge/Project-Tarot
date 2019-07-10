@@ -9,6 +9,9 @@ public class PeytonEnemyAI : MonoBehaviour {
     public float health = 100f;
     public float damage = 10f;
     public float atk_speed = 10f;
+    Animator anim;
+
+    float Dtimer = 0f;
 
     public enum State {
         Walk,
@@ -40,8 +43,8 @@ public class PeytonEnemyAI : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         state = State.Walk;
+        anim = gameObject.GetComponent<Animator>();
         isPlayerInSightRange = false;
-        
 
     }
 
@@ -49,15 +52,21 @@ public class PeytonEnemyAI : MonoBehaviour {
     void Update() {
         //DrawBounds();
         if (state == State.Walk) {
+            anim.SetBool("MageWalk", true);
             walk();
             lookForObstacles();
         } else if (state == State.Attack) {
+            anim.SetBool("MageWalk", false);
             attack();
             lookForObstacles();
         }
         else if (state == State.Die)
         {
-
+            anim.SetBool("MageWalk", false);
+            anim.SetBool("MageDead", true);
+            if (Time.time - Dtimer > 5) {
+                Destroy(gameObject);
+            }
             /**
              * Todo: create die method
              **/
@@ -65,7 +74,8 @@ public class PeytonEnemyAI : MonoBehaviour {
 
         if (health <= 0f)
         {
-            Destroy(gameObject);
+            state = State.Die;
+
         }
     }
 

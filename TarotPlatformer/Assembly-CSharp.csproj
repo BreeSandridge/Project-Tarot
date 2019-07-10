@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\System\Cards\Card.cs" />
-     <Compile Include="Assets\Code\System\Cards\GameManager.cs" />
      <Compile Include="Assets\Code\System\Cards\Moon\Moon.cs" />
      <Compile Include="Assets\Code\System\Cards\Strength\Strength.cs" />
      <Compile Include="Assets\Code\System\Cards\Sun\Sun.cs" />
@@ -63,19 +62,19 @@
      <Compile Include="Assets\Code\System\Cards\TheMagician\Fireball.cs" />
      <Compile Include="Assets\Code\System\Cards\TheMagician\TheMagician.cs" />
      <Compile Include="Assets\Code\System\Enemy\ChildCollider.cs" />
-     <Compile Include="Assets\Code\System\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\Code\System\Enemy\EnemyFireBall.cs" />
      <Compile Include="Assets\Code\System\Enemy\PeytonEnemyAI.cs" />
-     <Compile Include="Assets\Code\System\Exit.cs" />
-     <Compile Include="Assets\Code\System\Game_Over_ToPlay.cs" />
-     <Compile Include="Assets\Code\System\MainMenu.cs" />
-     <Compile Include="Assets\Code\System\PauseMenu.cs" />
-     <Compile Include="Assets\Code\System\Play.cs" />
-     <Compile Include="Assets\Code\System\Player.cs" />
-     <Compile Include="Assets\Code\System\Resume.cs" />
-     <Compile Include="Assets\Code\System\TarotDeck.cs" />
+     <Compile Include="Assets\Code\System\GameManager.cs" />
+     <Compile Include="Assets\Code\System\HUD\hpBar.cs" />
+     <Compile Include="Assets\Code\System\Player\Player.cs" />
+     <Compile Include="Assets\Code\System\Player\TarotDeck.cs" />
+     <Compile Include="Assets\Code\System\UI\Exit.cs" />
+     <Compile Include="Assets\Code\System\UI\Game_Over_ToPlay.cs" />
+     <Compile Include="Assets\Code\System\UI\MainMenu.cs" />
+     <Compile Include="Assets\Code\System\UI\PauseMenu.cs" />
+     <Compile Include="Assets\Code\System\UI\Play.cs" />
+     <Compile Include="Assets\Code\System\UI\Resume.cs" />
      <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
-     <Compile Include="Assets\Code\System\Utils\MyLinkedList.cs" />
      <Compile Include="Assets\Prefab\TeleTarot\Sucicide.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/peyto/OneDrive/Desktop/Master Code/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
