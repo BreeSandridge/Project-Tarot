@@ -40,13 +40,15 @@ public class AudioController : MonoBehaviour {
     AudioSource audio;
 
 
+    string scene;
+
     // Play default sound
     void Start()
     {
         audio = this.GetComponent<AudioSource>();
 
 
-        string scene = SceneManager.GetActiveScene().name;
+        scene = SceneManager.GetActiveScene().name;
 
         if (scene.Equals("Main_Menu") || scene.Equals("Tutorial") || scene.Equals("Game")) {
             audio.clip = TitleScreen;
@@ -67,6 +69,8 @@ public class AudioController : MonoBehaviour {
         {
             audio.PlayOneShot(player_jump, 0.5f);
             GameManager.jump = false;
+            //cape_flap.PlayDelayed(1f);
+            
         }
 
         if (GameManager.fbAtk)
@@ -74,7 +78,18 @@ public class AudioController : MonoBehaviour {
             audio.PlayOneShot(fireball, 0.5f);
             GameManager.fbAtk = false;
         }
-    }
 
-    
+        if (GameManager.walk)
+        {
+            if(scene.Equals("Tutorial"))
+            {
+                audio.PlayOneShot(player_walk_grass, 0.5f);   
+            }
+
+            else
+            {
+                audio.PlayOneShot(player_walk, 0.5f);
+            }
+        }
+    }    
 }

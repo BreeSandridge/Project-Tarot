@@ -34,6 +34,8 @@ public static class GameManager{
 
 
 
+    public static bool fall = false;
     public static bool jump = false;
-    public static bool fbAtk;
+    public static bool fbAtk = false;
+    public static bool walk = false;
 }

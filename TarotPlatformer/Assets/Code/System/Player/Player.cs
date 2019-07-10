@@ -76,6 +76,7 @@ public class Player : MonoBehaviour {
                 GameManager.numJumps++;
 
                 GameManager.jump = true;
+                GameManager.fall = true;
             }
 
             if (jumpActivation)
@@ -93,11 +94,13 @@ public class Player : MonoBehaviour {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 anim.SetBool("MakeWalk", true);
+                GameManager.walk = true;
             }
 
             else
             {
                 anim.SetBool("MakeWalk", false);
+                GameManager.walk = false;
             }
 
             if (Input.GetKey(KeyCode.E))
@@ -118,7 +121,7 @@ public class Player : MonoBehaviour {
                 }
             }
 
-            if (Input.GetKey(KeyCode.K))
+            if (GameManager.health <= 0)
             {
                 anim.SetBool("Dead", true);
             }
