@@ -83,7 +83,10 @@
     <Compile Include="Assets\Code\System\UI\Play.cs" />
     <Compile Include="Assets\Code\System\UI\Resume.cs" />
     <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
+    <Compile Include="Assets\Level1Exit.cs" />
+    <Compile Include="Assets\Level2Exit.cs" />
     <Compile Include="Assets\Prefab\TeleTarot\Sucicide.cs" />
+    <Compile Include="Assets\Sound\SFX.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ITP/Desktop/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
