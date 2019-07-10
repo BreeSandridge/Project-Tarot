@@ -100,7 +100,8 @@ public class Player : MonoBehaviour {
                 anim.SetBool("MakeWalk", false);
             }
 
-            if (Input.GetKey(KeyCode.E))
+            /*
+             * if (Input.GetKey(KeyCode.E))
             {
                 anim.SetBool("Heal0", true);
                 anim2.SetBool("Heal1", true);
@@ -127,6 +128,7 @@ public class Player : MonoBehaviour {
             {
                 anim.SetBool("Dead", false);
             }
+            */
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == 1)

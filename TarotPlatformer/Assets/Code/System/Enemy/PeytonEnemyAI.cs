@@ -194,12 +194,16 @@ public class PeytonEnemyAI : MonoBehaviour {
         }
     }
 
+    public void CollisionDetectedInvisWall(ChildCollider childScript) {
+        dir = !dir;
+    }
+
     public void CollisionDetected(ChildCollider childScript)
     {
         print("child collided: " + childScript.name);
 
 
-        if (childScript.name == "Right" && childScript.name != "Left") {
+        if ((childScript.name == "Right" && childScript.name != "Left")) {
             dir = false;
         } else if (childScript.name != "Right" && childScript.name == "Left") {
             dir = true;
@@ -217,7 +221,7 @@ public class PeytonEnemyAI : MonoBehaviour {
         Debug.Log("Work");
         if (col.gameObject.tag == "Fireball")
         {
-            Debug.Log("Health left: " + health);
+            //Debug.Log("Health left: " + health);
             health -= 10f;
         }
     }

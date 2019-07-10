@@ -14,6 +14,11 @@ public class ChildCollider : MonoBehaviour {
 		
 	}
     void OnCollisionEnter2D(Collision2D collision) {
-        transform.parent.GetComponent<PeytonEnemyAI>().CollisionDetected(this);
+        if (collision.gameObject.tag.Equals("_____"))
+        {
+            transform.parent.GetComponent<PeytonEnemyAI>().CollisionDetectedInvisWall(this);
+        } else {
+            transform.parent.GetComponent<PeytonEnemyAI>().CollisionDetected(this);
+        }
     }
 }

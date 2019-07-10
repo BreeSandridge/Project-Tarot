@@ -230,6 +230,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224243937027566776, guid: 60d738cb7dedb9e4684bbb5810d2c267,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.0875108
+      objectReference: {fileID: 0}
+    - target: {fileID: 224243937027566776, guid: 60d738cb7dedb9e4684bbb5810d2c267,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.199997
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60d738cb7dedb9e4684bbb5810d2c267, type: 2}
   m_IsPrefabParent: 0
@@ -291,6 +301,16 @@ Prefab:
         type: 2}
       propertyPath: m_Size.y
       value: 1.6591167
+      objectReference: {fileID: 0}
+    - target: {fileID: 114297972694957782, guid: 5ff333375245a4748b4344e9b7d053b3,
+        type: 2}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1539460274553120, guid: 996da9f26f09958468353e77966bef13,
+        type: 2}
+    - target: {fileID: 4348355795805008, guid: 5ff333375245a4748b4344e9b7d053b3, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ff333375245a4748b4344e9b7d053b3, type: 2}
@@ -557,8 +577,23 @@ Prefab:
         type: 2}
       propertyPath: obj
       value: 
-      objectReference: {fileID: 1972679269274532, guid: a174bd24fb3cb844fac7a050497c0a93,
+      objectReference: {fileID: 1649643296869346, guid: a174bd24fb3cb844fac7a050497c0a93,
         type: 2}
+    - target: {fileID: 50236314542485646, guid: ececd6b57915399408f6f17251aa342d,
+        type: 2}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50236314542485646, guid: ececd6b57915399408f6f17251aa342d,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50236314542485646, guid: ececd6b57915399408f6f17251aa342d,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ececd6b57915399408f6f17251aa342d, type: 2}
   m_IsPrefabParent: 0

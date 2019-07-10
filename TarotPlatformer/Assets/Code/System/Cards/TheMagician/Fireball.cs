@@ -20,11 +20,11 @@ public class Fireball : MonoBehaviour
 
         if (GameManager.dir == false)
         {
-            speed *= -1;
+            speed = -20;
         }
         else
         {
-            speed = Mathf.Abs(speed);
+            speed = 20;
         }
         rb.velocity = new Vector3(speed, 0, 0);
         Destroy(gameObject, 3);
@@ -32,19 +32,23 @@ public class Fireball : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void OnCollisionEnter2D(Collision2D coll)
+    /*private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag.Equals("Enemy"))
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
-    private void OnTriggerEnter2D(Collider2D col) {
-        /*if (col.tag.Equals("Enemy"))
-        {
-            Destroy(this.gameObject);
-        }*/
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll is BoxCollider2D) {
+
+            if (!coll.tag.Equals("Player"))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
 

@@ -33,12 +33,28 @@ public class EnemyFireBall : MonoBehaviour {
     {
         
 
-        if (coll.gameObject.tag.Equals("Player")) {
+        /*if (coll.gameObject.tag.Equals("Player")) {
             GameManager.health -= 10f;
             Destroy(gameObject);
         }
 
         if (coll.gameObject.tag.Equals("Fireball")) {
+            Destroy(coll.gameObject);
+            Destroy(this.gameObject);
+        }*/
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag.Equals("Player"))
+        {
+            GameManager.health -= 10f;
+            Destroy(gameObject);
+        }
+
+        if (coll.gameObject.tag.Equals("Fireball"))
+        {
             Destroy(coll.gameObject);
             Destroy(this.gameObject);
         }
