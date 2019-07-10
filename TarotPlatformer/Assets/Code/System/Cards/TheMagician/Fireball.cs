@@ -40,31 +40,17 @@ public class Fireball : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col) {
+        /*if (col.tag.Equals("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }*/
+    }
+
 
 
     void Update()
     {
-        // rb.velocity = new Vector3(speed, 0, 0);
-        /*  Debug.Log(t);
-
-
-
-
-          if(Time.time - t >= 1)
-          {
-              GameObject.Destroy(this);
-          }
-
-          /*
-          t -= Time.deltaTime;
-          if(t > 3)
-          {
-              GameObject.Destroy(this);
-          }
-          //if (Time.time - t < 6)
-          {
-
-          }
-           */
+        
     }
 }

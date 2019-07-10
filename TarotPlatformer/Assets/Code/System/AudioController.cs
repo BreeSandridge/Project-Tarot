@@ -32,11 +32,6 @@ public class AudioController : MonoBehaviour {
     public AudioClip door_opening_sound_effects;
     public AudioClip cape_flap;
 
-
-    //int[] cardNum = new int[3];
-    //bool card;
-
-
     AudioSource audio;
 
 

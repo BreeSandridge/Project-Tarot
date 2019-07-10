@@ -210,6 +210,10 @@ public class PeytonEnemyAI : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D col) {
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
         Debug.Log("Work");
         if (col.gameObject.tag == "Fireball")
         {
