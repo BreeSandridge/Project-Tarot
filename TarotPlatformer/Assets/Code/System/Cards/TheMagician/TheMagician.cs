@@ -20,10 +20,12 @@ public class TheMagician : TarotCard {
             {
                 pos += new Vector3(-1, 0, 0);
             }
+            
 
             Instantiate(obj, pos, Quaternion.identity);
 
             GameManager.magicianAbility = false;
+            GameManager.fbAtk = true;
         }
     }
 

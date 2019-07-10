@@ -64,9 +64,10 @@ public class PeytonEnemyAI : MonoBehaviour {
         {
             anim.SetBool("MageWalk", false);
             anim.SetBool("MageDead", true);
-            if (Time.time - Dtimer > 5) {
+            if (Time.time - Dtimer > 1) {
                 Destroy(gameObject);
             }
+            /**
             /**
              * Todo: create die method
              **/
@@ -74,7 +75,11 @@ public class PeytonEnemyAI : MonoBehaviour {
 
         if (health <= 0f)
         {
-            state = State.Die;
+            if (state != State.Die)
+            {
+                Dtimer = Time.time;
+                state = State.Die;
+            }
 
         }
     }
@@ -145,6 +150,7 @@ public class PeytonEnemyAI : MonoBehaviour {
             if (directionToPlayer)
             {
                 Instantiate(weapon, transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
+                GameManager.fbAtk = false;
                 t = Time.time;
                 Debug.Log("Found You, Lefty");
             }

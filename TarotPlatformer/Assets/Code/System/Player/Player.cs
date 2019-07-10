@@ -68,12 +68,14 @@ public class Player : MonoBehaviour {
             rb.velocity = new Vector3(movement, rb.velocity.y, 0);
 
 
-            if (GameManager.numJumps == 0 && Input.GetKeyDown(KeyCode.Space))
+            if (GameManager.numJumps == 0 && Input.GetKeyDown(KeyCode.W))
             {
                 anim.SetBool("MakeFall", true);
                 jumpt = Time.time;
                 jumpActivation = true;
                 GameManager.numJumps++;
+
+                GameManager.jump = true;
             }
 
             if (jumpActivation)

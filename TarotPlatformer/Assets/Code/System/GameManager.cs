@@ -32,4 +32,8 @@ public static class GameManager{
 
     public static bool Activated = true;
 
+
+
+    public static bool jump = false;
+    public static bool fbAtk;
 }

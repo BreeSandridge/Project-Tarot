@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1803180877967958}
+  m_IsPrefabParent: 1
+--- !u!1 &1803180877967958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4510612064135254}
+  - component: {fileID: 20672978323770766}
+  - component: {fileID: 124798129461622940}
+  - component: {fileID: 81002879078453576}
+  - component: {fileID: 82422372138659686}
+  - component: {fileID: 114794784471886058}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4510612064135254
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803180877967958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20672978323770766
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803180877967958}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &81002879078453576
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803180877967958}
+  m_Enabled: 1
+--- !u!82 &82422372138659686
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803180877967958}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &114794784471886058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803180877967958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eee01174b10b95408e49cc313ca49ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TitleScreen: {fileID: 8300000, guid: 650d2150cceb76c479aa3b2f22226b69, type: 3}
+  Castle: {fileID: 8300000, guid: 3c008c0c1a49c0a4aa597ec7c57a2f15, type: 3}
+  Boss: {fileID: 8300000, guid: 3d579087603cbd24d957905a7db8598e, type: 3}
+  sword_contact: {fileID: 8300000, guid: 9b3fbfc7314c21a4eae9dcf6d4488521, type: 3}
+  player_walk_grass: {fileID: 8300000, guid: 74ea30868ce0b0c44b89abd0b4c37c44, type: 3}
+  player_walk: {fileID: 8300000, guid: 527c768a138d1464ca5c9682718e6c22, type: 3}
+  player_jump: {fileID: 8300000, guid: 0891dd80c76ad254fa14a26ae4233552, type: 3}
+  holy_sound: {fileID: 8300000, guid: 45483ee1ee339944c8bee42000cafbbd, type: 3}
+  hit_sound_effect: {fileID: 8300000, guid: c4c784111debd904b89b3976e6e91c34, type: 3}
+  heal: {fileID: 8300000, guid: 8cacd6539b1c4b24482346d3d8d5c31f, type: 3}
+  fireball: {fileID: 8300000, guid: 42e0392e6b7594142ab310244ddc1fec, type: 3}
+  fire_sword_spawn: {fileID: 8300000, guid: b6f6df5d800111d4aa60976fd23907ef, type: 3}
+  door_open: {fileID: 8300000, guid: 1592aa872fbc59640a9872863dda8b70, type: 3}
+  chest_open: {fileID: 8300000, guid: c47aa7a0163829d468825065fc9bbf72, type: 3}
+  card_pickup: {fileID: 8300000, guid: b47079ac5014040458228593eeaff480, type: 3}
+  card_1: {fileID: 8300000, guid: c80821ce8e8347e4fbd062a453dc8135, type: 3}
+  card_2: {fileID: 8300000, guid: a49ff6bc9a0c39e45a4511607ab4f0b4, type: 3}
+  card_3: {fileID: 8300000, guid: 1991ac81cd11442428819e6be7333d56, type: 3}
+  boss_death: {fileID: 8300000, guid: aa8fd2bae520f9d499a92b8bee1a8645, type: 3}
+  menu_select: {fileID: 8300000, guid: 67fe316e10965274d882ccc143eb62e3, type: 3}
+  door_opening_sound_effects: {fileID: 8300000, guid: f2f42a56ceece324e9237d467977f368,
+    type: 3}
+  cape_flap: {fileID: 8300000, guid: dee20dc3de2a96648a9e6241dc9246a8, type: 3}
+--- !u!124 &124798129461622940
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803180877967958}
+  m_Enabled: 1

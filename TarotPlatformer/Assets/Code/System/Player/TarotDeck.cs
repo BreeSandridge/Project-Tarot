@@ -55,7 +55,7 @@ public class TarotDeck : MonoBehaviour {
     }
 
     public static void ability() {
-        if (Input.GetKeyDown(KeyCode.R) && abilities[0]) {
+        if (Input.GetKeyDown(KeyCode.Space) && abilities[0]) {
             GameManager.magicianAbility = true;
         }
 
