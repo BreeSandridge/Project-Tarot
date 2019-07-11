@@ -1,0 +1,2 @@
+C:\Users\ITP\Desktop\project-tarot\TarotPlatformer\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\ITP\Desktop\project-tarot\TarotPlatformer\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

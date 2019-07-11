@@ -61,7 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BossAI.cs" />
     <Compile Include="Assets\Code\System\AudioController.cs" />
+    <Compile Include="Assets\Code\System\Boss\BossManager.cs" />
     <Compile Include="Assets\Code\System\Cards\Card.cs" />
     <Compile Include="Assets\Code\System\Cards\Moon\Moon.cs" />
     <Compile Include="Assets\Code\System\Cards\Strength\Strength.cs" />

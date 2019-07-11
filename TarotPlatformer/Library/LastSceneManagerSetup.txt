@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Level1Castle.unity
+- path: Assets/BossRoom.unity
   isLoaded: 1
   isActive: 1
