@@ -143,7 +143,7 @@ public class PeytonEnemyAI : MonoBehaviour {
 
     private void attack()
     {
-        if (Time.time - t > 2)
+        if (Time.time - t > 1)
         {
             //Enemy - Player
             if (directionToPlayer)
@@ -192,7 +192,13 @@ public class PeytonEnemyAI : MonoBehaviour {
     }
 
     public void CollisionDetectedInvisWall(ChildCollider childScript) {
-        dir = !dir;
+        if (childScript.name == "Right")
+        {
+            dir = false;
+        } else if (childScript.name == "Left")
+        {
+            dir = true;
+        }
     }
 
     public void CollisionDetected(ChildCollider childScript)

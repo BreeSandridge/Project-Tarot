@@ -43,17 +43,19 @@ public class AudioController : MonoBehaviour {
 
 
         scene = SceneManager.GetActiveScene().name;
+        
 
-        if (scene.Equals("Main_Menu") || scene.Equals("Tutorial") || scene.Equals("Game")) {
+        if (scene.Equals("Main_Menu") || scene.Equals("SampleScene") || scene.Equals("Game")) {
             audio.clip = TitleScreen;
         } else if (scene.Equals("Level1Castle")) {
             audio.clip = Castle;
         } else if (scene.Equals("BossRoom"))
 
-
         audio.loop = true;
 
+
         audio.Play();
+        
 
         
     }

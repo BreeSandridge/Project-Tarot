@@ -13,7 +13,7 @@ public class Game_Over_ToPlay : MonoBehaviour {
 	private void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Application.LoadLevel("Game");
+            Application.LoadLevel("SampleScene");
             GameManager.health = 100f;
         }
         

@@ -17,6 +17,7 @@ public class Play : MonoBehaviour {
 	}
     public void GoToPlay ()
     {
+        GameManager.health = 30;
         Application.LoadLevel("SampleScene");
     }
 }

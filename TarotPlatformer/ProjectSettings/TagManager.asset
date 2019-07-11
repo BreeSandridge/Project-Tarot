@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Enemy
   - Card
+  - EnemyFireball
+  - Fireball
+  - InvisBar
   layers:
   - Default
   - TransparentFX

@@ -13,12 +13,15 @@ public class ChildCollider : MonoBehaviour {
 	void Update () {
 		
 	}
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag.Equals("_____"))
-        {
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag.Equals("InvisBar")) {
             transform.parent.GetComponent<PeytonEnemyAI>().CollisionDetectedInvisWall(this);
-        } else {
-            transform.parent.GetComponent<PeytonEnemyAI>().CollisionDetected(this);
         }
+    }
+    void OnCollisionEnter2D(Collision2D collision) {
+        
+        transform.parent.GetComponent<PeytonEnemyAI>().CollisionDetected(this);
     }
 }
