@@ -74,7 +74,7 @@ public class Player : MonoBehaviour {
             if (jumpActivation)
             {
 
-                if (Time.time - jumpt > 0.2)
+                if (Time.time - jumpt > 0.1)
                 {
                     rb.AddForce(new Vector3(0, jump_speed, 0)); // Adds 100 force straight up, might need tweaking on that number
                     jumpActivation = false;
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
             }
 
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             {
                 anim.SetBool("MakeWalk", true);
                 GameManager.walk = true;
@@ -91,6 +91,18 @@ public class Player : MonoBehaviour {
             else
             {
                 anim.SetBool("MakeWalk", false);
+                GameManager.walk = false;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                anim.SetBool("MakeWalkF", true);
+                GameManager.walk = true;
+            }
+
+            else
+            {
+                anim.SetBool("MakeWalkF", false);
                 GameManager.walk = false;
             }
 
