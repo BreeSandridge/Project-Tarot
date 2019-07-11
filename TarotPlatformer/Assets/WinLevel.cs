@@ -21,6 +21,10 @@ public class WinLevel : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("MOve to next level");
-        Application.LoadLevel("VictoryScreen");
+        if (col.tag == "Player")
+        {
+            Application.LoadLevel("BossRoom");
+        }
+
     }
 }

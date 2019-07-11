@@ -88,6 +88,8 @@
     <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
     <Compile Include="Assets\PlayerWin.cs" />
     <Compile Include="Assets\Prefab\TeleTarot\Sucicide.cs" />
+    <Compile Include="Assets\sword.cs" />
+    <Compile Include="Assets\swordmanager.cs" />
     <Compile Include="Assets\toLevel1.cs" />
     <Compile Include="Assets\toVictory.cs" />
     <Compile Include="Assets\VictoryScreen.cs" />

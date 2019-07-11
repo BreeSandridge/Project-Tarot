@@ -23,7 +23,9 @@ public class TarotDeck : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("New Cards: " + GameManager.newCards);
         NewCard();
+        Debug.Log("Magician: " + abilities[0]);
 	}
 
     // col is the trigger object we collided with

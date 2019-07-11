@@ -6,7 +6,7 @@ public class PeytonEnemyAI : MonoBehaviour {
 
     public float speed = 2f;
     public float jump_speed = 500f;
-    public float health = 50f;
+    public float health = 70f;
     public float atk_speed = 8f;
     Animator anim;
 

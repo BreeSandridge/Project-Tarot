@@ -25,7 +25,7 @@ public class toMainMenu : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("MOve to next level");
+        Debug.Log("Mve to next level");
     }
 
 }
