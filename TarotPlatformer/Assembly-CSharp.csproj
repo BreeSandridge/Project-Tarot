@@ -63,8 +63,11 @@
      <Compile Include="Assets\Code\System\Cards\TheMagician\Fireball.cs" />
      <Compile Include="Assets\Code\System\Cards\TheMagician\TheMagician.cs" />
      <Compile Include="Assets\Code\System\Enemy\ChildCollider.cs" />
+     <Compile Include="Assets\Code\System\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\Code\System\Enemy\EnemyFireBall.cs" />
+     <Compile Include="Assets\Code\System\Enemy\EnemyManager.cs" />
      <Compile Include="Assets\Code\System\Enemy\PeytonEnemyAI.cs" />
+     <Compile Include="Assets\Code\System\Enemy\Sight.cs" />
      <Compile Include="Assets\Code\System\GameManager.cs" />
      <Compile Include="Assets\Code\System\HUD\hpBar.cs" />
      <Compile Include="Assets\Code\System\Player\Player.cs" />
@@ -76,7 +79,10 @@
      <Compile Include="Assets\Code\System\UI\Play.cs" />
      <Compile Include="Assets\Code\System\UI\Resume.cs" />
      <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
+     <Compile Include="Assets\Code\System\Utils\MyLinkedList.cs" />
+     <Compile Include="Assets\Code\System\Utils\Sensor.cs" />
      <Compile Include="Assets\Prefab\TeleTarot\Sucicide.cs" />
+     <Compile Include="Assets\TeleCollider.cs" />
      <Compile Include="Assets\toLevel1.cs" />
      <Compile Include="Assets\toMainMenu.cs" />
  <Reference Include="UnityEditor.StandardEvents">

@@ -24,6 +24,14 @@ public class Player : MonoBehaviour {
     // If we die we will teleport player to starting position.
     //public static bool dir = true;
 
+    private bool t1 = false;
+    private bool t2 = false;
+    private bool t3 = false;
+    private bool t4 = false;
+    private bool t5 = false;
+    private Vector3[] teleLocat = new Vector3[5];
+    private int tIndex = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the rigidbody component added to the object and store it in rb
@@ -130,8 +138,9 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && input == 1)
+        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && GameManager.dir)
         {
+            chooseTLocat();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
             rb.gravityScale = 0f;
             GameManager.Activated = false;
@@ -141,8 +150,9 @@ public class Player : MonoBehaviour {
             //Instantiate(teleCard, transform.position, transform.rotation);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && input == -1)
+        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && !GameManager.dir)
         {
+            chooseTLocat();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
             rb.gravityScale = 0f;
             GameManager.Activated = false;
@@ -193,11 +203,37 @@ public class Player : MonoBehaviour {
         {
             Application.LoadLevel("Game_Over");
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            transform.position = new Vector3(teleLocat[0].x, transform.position.y, transform.position.z);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            transform.position = new Vector3(teleLocat[1].x, transform.position.y, transform.position.z);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            transform.position = new Vector3(teleLocat[2].x, transform.position.y, transform.position.z);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            transform.position = new Vector3(teleLocat[3].x, transform.position.y, transform.position.z);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            transform.position = new Vector3(teleLocat[1].x, transform.position.y, transform.position.z);
+
+        }
     }
 
     void RTeleport()
     {
-        transform.position = new Vector3(transform.position.x + GameManager.Rtele, transform.position.y, transform.position.z);
+        transform.position = new Vector3(teleLocat[tIndex].x, transform.position.y, transform.position.z);
         anim.SetBool("VisiblePlayer", true);
         rb.gravityScale = 6f;
         GameManager.Dashcd = 4;
@@ -206,11 +242,66 @@ public class Player : MonoBehaviour {
 
     void LTeleport()
     {
-        transform.position = new Vector3(transform.position.x - GameManager.Ltele, transform.position.y, transform.position.z);
+        transform.position = new Vector3(teleLocat[tIndex].x, transform.position.y, transform.position.z);
         anim.SetBool("VisiblePlayer", true);
         rb.gravityScale = 6f;
-        GameManager.Dashcd = 5;
+        GameManager.Dashcd = 4;
         GameManager.Activated = true;
+    }
+
+    private void chooseTLocat()
+    {
+        Debug.Log("T1:" + t1);
+        Debug.Log("T2:" + t2);
+        Debug.Log("T3:" + t3);
+        Debug.Log("T4:" + t4);
+        Debug.Log("T5:" + t5);
+        if (t1)
+        {
+            tIndex = 0;
+        }
+        if (t2) {
+            tIndex = 1;
+        }
+        if (t3)
+        {
+            tIndex = 2;
+        }
+        if (t4)
+        {
+            tIndex = 3;
+        }
+        if (t5)
+        {
+            tIndex = 4;
+        }
+    }
+
+    void resetTeleBool() {
+        t1 = false;
+        t2 = false;
+        t3 = false;
+        t4 = false;
+        t5 = false;
+    }
+
+    public void setTeleBool(int num, bool state, Vector3 Pos) {
+        if (num == 1) {
+            t1 = state;
+            teleLocat[0] = Pos;
+        } else if (num == 2) {
+            t2 = state;
+            teleLocat[1] = Pos;
+        } else if (num == 3) {
+            t3 = state;
+            teleLocat[2] = Pos;
+        } else if (num == 4) {
+            t4 = state;
+            teleLocat[3] = Pos;
+        } else if (num == 5) {
+            t5 = state;
+            teleLocat[4] = Pos;
+        }
     }
 
 
@@ -234,5 +325,13 @@ public class Player : MonoBehaviour {
         }
 
 
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            GameManager.numJumps = 1;
+        }
     }
 }

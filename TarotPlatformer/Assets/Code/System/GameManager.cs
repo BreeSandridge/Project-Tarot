@@ -17,8 +17,9 @@ public static class GameManager{
     public static int numJumps = 1;
     public static float dash = 0.4f;
     public static float playerX;
-    public static float Rtele = 4;
-    public static float Ltele = 4;
+    public static float maxTeleDist = 4;
+    //public static float TeleDist = 4;
+    public static bool TeleColl = false;
     public static float Dashcd = 4;
 
 
@@ -26,6 +27,7 @@ public static class GameManager{
 
     public static bool dir = true;
     public static Vector3 playerPos = new Vector3(0, 0, 0);
+    public static Vector3 TpPos;
 
     public static int newCards = 0;
 
