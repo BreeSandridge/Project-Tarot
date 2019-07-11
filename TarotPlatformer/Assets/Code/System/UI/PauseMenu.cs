@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     public void DeactivateMenu()
     {
         isPaused = false;
-        Debug.Log("Resume");
+        //Debug.Log("Resume");
         Time.timeScale = 1;
         AudioListener.pause = false;
         pauseMenuUI.SetActive(false);

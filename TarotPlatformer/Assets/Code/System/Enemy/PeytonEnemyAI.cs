@@ -6,7 +6,7 @@ public class PeytonEnemyAI : MonoBehaviour {
 
     public float speed = 2f;
     public float jump_speed = 500f;
-    public float health = 50f;
+    private float health = 50f;
     public float atk_speed = 8f;
     Animator anim;
 
@@ -197,7 +197,7 @@ public class PeytonEnemyAI : MonoBehaviour {
 
     public void CollisionDetected(ChildCollider childScript)
     {
-        print("child collided: " + childScript.name);
+       // print("child collided: " + childScript.name);
 
 
         if ((childScript.name == "Right" && childScript.name != "Left")) {
@@ -217,7 +217,7 @@ public class PeytonEnemyAI : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Fireball")
         {
-            //Debug.Log("Health left: " + health);
+            Debug.Log("Hit Enemy");
             health -= GameManager.damage;
         }
     }

@@ -200,7 +200,7 @@ public class Player : MonoBehaviour {
 
         ability();
 
-        Debug.Log(GameManager.health);
+        //Debug.Log(GameManager.health);
         if (GameManager.health <= 0f)
         {
             Application.LoadLevel("Game_Over");
