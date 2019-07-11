@@ -9,7 +9,6 @@ public class TheMagician : TarotCard {
     public override void Ability() {
 
         if (GameManager.magicianAbility) {
-            Debug.Log(GameManager.dir);
             pos = GameManager.playerPos;
 
             if (GameManager.dir == true)

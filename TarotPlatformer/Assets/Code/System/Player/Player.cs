@@ -6,13 +6,6 @@ public class Player : MonoBehaviour {
     public float speed = 6f;
     public float jump_speed = 500f;
     public float run_speed = 5.5f;
-    public float dash_distance = 1.5f;
-    //public int numJumps = 0;
-    public float dash = 0.4f;
-    public static float playerX;
-    public float Rtele;
-    public float Ltele;
-    public float Dashcd = 5;
     public float jumpt;
     public float Healt;
     public float Dasht;
@@ -46,7 +39,7 @@ public class Player : MonoBehaviour {
 
         var input = Input.GetAxis("Horizontal"); // This will give us left and right movement (from -1 to 1). 
         var movement = input * /*GameManager.*/speed;
-        /*GameManager.*/Dashcd -= Time.deltaTime;
+        GameManager.Dashcd -= Time.deltaTime;
 
         if (input > 0)
         {
@@ -88,16 +81,17 @@ public class Player : MonoBehaviour {
                 }
             }
 
-            playerX = transform.position.x;
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
                 anim.SetBool("MakeWalk", true);
+                GameManager.walk = true;
             }
 
             else
             {
                 anim.SetBool("MakeWalk", false);
+                GameManager.walk = false;
             }
 
             /*
@@ -129,9 +123,14 @@ public class Player : MonoBehaviour {
                 anim.SetBool("Dead", false);
             }
             */
+
+            if (GameManager.health <= 0)
+            {
+                anim.SetBool("Dead", true);
+            }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == 1)
+        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && input == 1)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
             rb.gravityScale = 0f;
@@ -142,7 +141,7 @@ public class Player : MonoBehaviour {
             //Instantiate(teleCard, transform.position, transform.rotation);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Dashcd <= 0 && input == -1)
+        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && input == -1)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
             rb.gravityScale = 0f;
@@ -198,19 +197,19 @@ public class Player : MonoBehaviour {
 
     void RTeleport()
     {
-        transform.position = new Vector3(transform.position.x + Rtele, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x + GameManager.Rtele, transform.position.y, transform.position.z);
         anim.SetBool("VisiblePlayer", true);
         rb.gravityScale = 6f;
-        Dashcd = 5;
+        GameManager.Dashcd = 4;
         GameManager.Activated = true;
     }
 
     void LTeleport()
     {
-        transform.position = new Vector3(transform.position.x - Ltele, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x - GameManager.Ltele, transform.position.y, transform.position.z);
         anim.SetBool("VisiblePlayer", true);
         rb.gravityScale = 6f;
-        Dashcd = 5;
+        GameManager.Dashcd = 5;
         GameManager.Activated = true;
     }
 

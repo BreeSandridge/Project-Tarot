@@ -77,6 +77,8 @@
      <Compile Include="Assets\Code\System\UI\Resume.cs" />
      <Compile Include="Assets\Code\System\Utils\CriticalHit.cs" />
      <Compile Include="Assets\Prefab\TeleTarot\Sucicide.cs" />
+     <Compile Include="Assets\toLevel1.cs" />
+     <Compile Include="Assets\toMainMenu.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/peyto/OneDrive/Desktop/Master Code/Project-Tarot/TarotPlatformer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

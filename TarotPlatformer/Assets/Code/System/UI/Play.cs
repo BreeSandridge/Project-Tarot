@@ -17,6 +17,6 @@ public class Play : MonoBehaviour {
 	}
     public void GoToPlay ()
     {
-        Application.LoadLevel("Game");
+        Application.LoadLevel("SampleScene");
     }
 }

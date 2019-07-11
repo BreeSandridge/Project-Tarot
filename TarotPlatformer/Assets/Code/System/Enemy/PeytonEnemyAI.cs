@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PeytonEnemyAI : MonoBehaviour {
 
-    public float speed = 3f;
+    public float speed = 2f;
     public float jump_speed = 500f;
-    public float health = 100f;
-    public float damage = 10f;
-    public float atk_speed = 10f;
+    public float health = 50f;
+    public float atk_speed = 8f;
     Animator anim;
 
     float Dtimer = 0f;
@@ -152,14 +151,12 @@ public class PeytonEnemyAI : MonoBehaviour {
                 Instantiate(weapon, transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
                 GameManager.fbAtk = false;
                 t = Time.time;
-                Debug.Log("Found You, Lefty");
             }
             //Player - Enemy
             else
             {
                 Instantiate(weapon, transform.position - new Vector3(1f, 0f, 0f), Quaternion.identity);
                 t = Time.time;
-                Debug.Log("Found You, Righty");
             }
             t = Time.time;
         }
@@ -218,11 +215,10 @@ public class PeytonEnemyAI : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("Work");
         if (col.gameObject.tag == "Fireball")
         {
             //Debug.Log("Health left: " + health);
-            health -= 10f;
+            health -= GameManager.damage;
         }
     }
 }
