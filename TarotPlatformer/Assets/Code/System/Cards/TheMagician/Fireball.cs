@@ -44,7 +44,7 @@ public class Fireball : MonoBehaviour
     {
         if (coll is BoxCollider2D) {
 
-            if (!coll.tag.Equals("Player"))
+            if (!coll.tag.Equals("Player") && !coll.tag.Equals("DashRange"))
             {
                 Destroy(gameObject);
             }

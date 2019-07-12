@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
     void Update()
     {
         GameManager.playerPos = transform.position;
+        //GameManager.playerPos = transform.GetChild(0).position;
 
         var input = Input.GetAxis("Horizontal"); // This will give us left and right movement (from -1 to 1). 
         var movement = input * /*GameManager.*/speed;

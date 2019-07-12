@@ -10,6 +10,7 @@ TagManager:
   - EnemyFireball
   - Fireball
   - InvisBar
+  - DashRange
   layers:
   - Default
   - TransparentFX

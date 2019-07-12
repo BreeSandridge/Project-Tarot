@@ -23,6 +23,8 @@ public class TeleCollider : MonoBehaviour {
         GameManager.TpPos = transform.position;
 
         if (colls > 0) {
+            //gets parent's parent (the player) and accesses the player.cs file and callse the setTeleBool method
+            // setTeleBool sets bool for dashing
             transform.parent.parent.GetComponent<Player>().setTeleBool(int.Parse(this.gameObject.name), false, this.transform.position);
         } else {
             colls = 0;

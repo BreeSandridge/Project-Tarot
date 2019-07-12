@@ -9,7 +9,7 @@ public class TheMagician : TarotCard {
     public override void Ability() {
 
         if (GameManager.magicianAbility) {
-            pos = GameManager.playerPos;
+            pos = transform.position;
 
             if (GameManager.dir == true)
             {
@@ -18,10 +18,11 @@ public class TheMagician : TarotCard {
             else
             {
                 pos += new Vector3(-1, 0, 0);
-            }
-            
 
+            }
             Instantiate(obj, pos, Quaternion.identity);
+
+
 
             GameManager.magicianAbility = false;
             GameManager.fbAtk = true;
