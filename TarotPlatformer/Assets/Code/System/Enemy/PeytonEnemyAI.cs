@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PeytonEnemyAI : MonoBehaviour {
 
+    public GameObject player;
+
     public float speed = 2f;
     public float jump_speed = 500f;
-    public float health = 50f;
+    private float health = 50f;
     public float atk_speed = 8f;
     Animator anim;
 
@@ -96,7 +98,7 @@ public class PeytonEnemyAI : MonoBehaviour {
 
         // Code for visibility detection
         if (isPlayerInSightRange) {
-            var heading = GameManager.playerPos - this.transform.position;
+            var heading = player.transform.position - this.transform.position;
             var distance = heading.magnitude;
             var direction = heading / distance; // This is now the normalized direction.
 
@@ -117,7 +119,7 @@ public class PeytonEnemyAI : MonoBehaviour {
                     {
                         playerFound = true;
                         visible = true;
-//                        Debug.Log("Player Found");
+                        Debug.Log("Player Found");
                     }
                     else
                     {
@@ -131,12 +133,12 @@ public class PeytonEnemyAI : MonoBehaviour {
         }
         if (visible)
         {
-            //Debug.Log("Can See Player");
+            Debug.Log("Can See Player");
             state = State.Attack;
         }
         else
         {
-            //Debug.Log("Cannot See Player");
+            Debug.Log("Cannot See Player");
             state = State.Walk;
         }
     }
@@ -178,7 +180,7 @@ public class PeytonEnemyAI : MonoBehaviour {
         if (col.tag == "Player")
         {
             isPlayerInSightRange = true;
-            
+            Debug.Log("is in range");
         }
 
     }

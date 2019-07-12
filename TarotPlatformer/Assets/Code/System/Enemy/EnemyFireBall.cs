@@ -51,13 +51,13 @@ public class EnemyFireBall : MonoBehaviour {
         {
             GameManager.health -= 10f;
             Destroy(gameObject);
-        }
-
-        if (coll.gameObject.tag.Equals("Fireball"))
+        } else if (coll.gameObject.tag.Equals("Fireball"))
         {
             Destroy(coll.gameObject);
             Destroy(this.gameObject);
-        }
+        } 
+
+
     }
     // Update is called once per frame
     void Update()

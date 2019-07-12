@@ -14,7 +14,7 @@ public static class GameManager{
     public static float critChance = .2f;
     public static float run_speed = 5.5f;
     public static float dash_distance = 1.5f;
-    public static int numJumps = 1;
+    public static int numJumps = 0;
     public static float dash = 0.4f;
     public static float playerX;
     public static float maxTeleDist = 4;

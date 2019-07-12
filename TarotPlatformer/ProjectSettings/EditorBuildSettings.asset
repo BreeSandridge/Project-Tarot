@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level1Castle.unity
     guid: 0ec69ec487d4d40d0bf0523d99ac0c9b
+  - enabled: 1
+    path: Assets/BossRoom.unity
+    guid: 6538a6e7272a14846975b6e5a7a28c37
   m_configObjects: {}
