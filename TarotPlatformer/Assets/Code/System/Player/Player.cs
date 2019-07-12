@@ -6,15 +6,15 @@ public class Player : MonoBehaviour {
     public float speed = 6f;
     public float jump_speed = 500f;
     public float run_speed = 5.5f;
-    public float jumpt;
+    public float jumpt; //These variables helped keep track of timers within animations.
     public float Healt;
     public float Dasht;
-    public bool jumpActivation = false;
+    public bool jumpActivation = false; //Bools used for the animation below.
     public bool healActivation = false;
     public bool dashActivationR = false;
     public bool dashActivationL = false;
     Rigidbody2D rb;
-    Animator anim;
+    Animator anim; //The objects below helped in coding for animation, simple in concept, but hard to learn for the first time.
     public Animator anim2;
     public Animator anim3;
     public Animator anim4;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
 
         var input = Input.GetAxis("Horizontal"); // This will give us left and right movement (from -1 to 1). 
         var movement = input * /*GameManager.*/speed;
-        GameManager.Dashcd -= Time.deltaTime;
+        GameManager.Dashcd -= Time.deltaTime; //This keeps track of how often the player can dash.
 
         if (input > 0)
         {
@@ -70,17 +70,17 @@ public class Player : MonoBehaviour {
             rb.velocity = new Vector3(movement, rb.velocity.y, 0);
 
 
-            if (GameManager.numJumps == 0 && Input.GetKeyDown(KeyCode.W))
+            if (GameManager.numJumps == 0 && Input.GetKeyDown(KeyCode.W)) //This method checks to make sure the player can't double jump and then starts an animation and sets a timer for another.
             {
-                anim.SetBool("MakeFall", true);
-                jumpt = Time.time;
+                anim.SetBool("MakeFall", true);//animation set
+                jumpt = Time.time; //timer set
                 jumpActivation = true;
                 GameManager.numJumps++;
 
                 GameManager.jump = true;
             }
 
-            if (jumpActivation)
+            if (jumpActivation)//code caried out by the activation of the bool above.
             {
 
                 if (Time.time - jumpt > 0.2)
@@ -91,13 +91,13 @@ public class Player : MonoBehaviour {
             }
 
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))//checks directional input to decide which animation is to be played
             {
                 anim.SetBool("MakeWalk", true);
                 GameManager.walk = true;
             }
 
-            else
+            else//sets idle animation if no directional input
             {
                 anim.SetBool("MakeWalk", false);
                 GameManager.walk = false;
@@ -133,25 +133,25 @@ public class Player : MonoBehaviour {
             }
             */
 
-            if (GameManager.health <= 0)
+            if (GameManager.health <= 0)//Displays death anim if player health == 0;
             {
                 anim.SetBool("Dead", true);
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && GameManager.dir)
+        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && GameManager.dir)//Code for the dash @param leftshift, dash is not on cooldown, which direction player is walking
         {
             chooseTLocat();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
-            rb.gravityScale = 0f;
+            rb.gravityScale = 0f;// sets grav to 0 to temporarily hold the player in place
             GameManager.Activated = false;
-            anim3.SetBool("DAB0", true);
+            anim3.SetBool("DAB0", true);// starts anim
             Dasht = Time.time;
             dashActivationR = true;
             //Instantiate(teleCard, transform.position, transform.rotation);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && !GameManager.dir)
+        if (Input.GetKey(KeyCode.LeftShift) && GameManager.Dashcd <= 0 && !GameManager.dir)//Same as the cod above except for if the player is facing left
         {
             chooseTLocat();
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
@@ -163,7 +163,7 @@ public class Player : MonoBehaviour {
             //Instantiate(teleCard, transform.position, transform.rotation);
         }
 
-        if (dashActivationR)
+        if (dashActivationR)//player anims for right dash, redirects to RTeleport
         {
             if (Time.time - Dasht > 0.4)
             {
@@ -180,7 +180,7 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if (dashActivationL)
+        if (dashActivationL)//player anims for left dash, redirects to LTeleport
         {
             if (Time.time - Dasht > 0.4)
             {
@@ -232,7 +232,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void RTeleport()
+    void RTeleport()//Teleports player right upon activation of the anims
     {
         transform.position = new Vector3(teleLocat[tIndex].x, transform.position.y, transform.position.z);
         anim.SetBool("VisiblePlayer", true);
@@ -241,7 +241,7 @@ public class Player : MonoBehaviour {
         GameManager.Activated = true;
     }
 
-    void LTeleport()
+    void LTeleport()//Teleports player left upon activation of the anims
     {
         transform.position = new Vector3(teleLocat[tIndex].x, transform.position.y, transform.position.z);
         anim.SetBool("VisiblePlayer", true);
